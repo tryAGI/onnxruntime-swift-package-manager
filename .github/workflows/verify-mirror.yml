@@ -1,0 +1,22 @@
+name: Verify archival ONNX SwiftPM package
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  swift:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Swift toolchain
+        run: swift --version
+      - name: Resolve pinned binary XCFrameworks
+        run: swift package resolve
+      - name: Build ONNX Swift bindings
+        run: swift build --configuration release
