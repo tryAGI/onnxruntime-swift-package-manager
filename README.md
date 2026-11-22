@@ -1,3 +1,34 @@
+> **Independent archival mirror — not maintained or endorsed by Microsoft.**
+>
+> This repository preserves ONNX Runtime SwiftPM version **1.24.2** while the
+> upstream Microsoft repository is unavailable. The original, previously
+> published Git commit `b7fb7f7dea8a2469e6335d95a61b8f36d0dc83b2` is
+> preserved unchanged in this repository's ancestry. The only changes to the
+> Swift package manifest replace the two unavailable binary download URLs
+> with the independently hosted **exact same ZIP files**, not rebuilt binaries:
+>
+> - `pod-archive-onnxruntime-c-1.24.2.zip` SHA-256:
+>   `f7100a992d2a8135168c8afd831e6a58b465349101982aa58b3e11d36e600b54`
+> - `pod-archive-onnxruntime-extensions-c-0.13.0.zip` SHA-256:
+>   `346522d1171d4c99cb0908fa8e4e9330a4a6aad39cd83ce36eb654437b33e6b5`
+>
+> Source provenance: Microsoft commit retained in the existing Advantage lock,
+> verified against several public forks. The original ZIPs were recovered from
+> a pre-existing pinned SwiftPM cache and each archive was byte-checked against
+> Microsoft's previously published package manifest and again against GitHub's
+> uploaded-release digest. See [archival release assets](https://github.com/tryAGI/onnxruntime-swift-package-manager/releases/tag/assets-1.24.2).
+>
+> No independent security certification is implied. Review any future official
+> Microsoft advisory before upgrading or retiring this mirror.
+
+**For reproducible SwiftPM builds** (compatible public products and imports):
+
+```swift
+.package(url: "https://github.com/tryAGI/onnxruntime-swift-package-manager", exact: "1.24.2")
+```
+
+---
+
 # Swift Package Manager for ONNX Runtime
 
 A light-weight repository for providing [Swift Package Manager (SPM)](https://www.swift.org/package-manager/) support for [ONNXRuntime](https://github.com/microsoft/onnxruntime). The ONNX Runtime native package is included as a binary dependency of the SPM package.
